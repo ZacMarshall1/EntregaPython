@@ -23,8 +23,16 @@ df.loc[len(df)] = ['Valor Médio', valor_medio, '']
 # Exibir a tabela
 print(df)
 
-# Plotar gráfico de pizza para visualização
-plt.figure(figsize=(8, 8))
-plt.pie(df['Valor (R$)'][:-2], labels=df['Categoria'][:-2], autopct='%1.1f%%', startangle=140)
-plt.title('Distribuição das Despesas')
+# Criar gráfico de tabela
+plt.figure(figsize=(10, 6))
+plt.axis('tight')
+plt.axis('off')
+table = plt.table(cellText=df.values, colLabels=df.columns, cellLoc='center', loc='center')
+
+# Ajustar estilo da tabela
+table.auto_set_font_size(False)
+table.set_fontsize(12)
+table.scale(1.2, 1.2)
+
+# Exibir tabela
 plt.show()
