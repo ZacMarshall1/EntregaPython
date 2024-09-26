@@ -1,10 +1,27 @@
-# Definindo a tabela de frequência
-tabela_frequencia = [
-    {"gastos_por_visita": "220 - 249", "frequencia": 1},
-    {"gastos_por_visita": "250 - 279", "frequencia": 2},
-    {"gastos_por_visita": "280 - 309", "frequencia": 1}
-]
+import pandas as pd
+import matplotlib.pyplot as plt
 
-# Exibindo os dados
-for linha in tabela_frequencia:
-    print(f"Gastos por Visita: {linha['gastos_por_visita']}, Frequência: {linha['frequencia
+# Dados da tabela
+data = {
+    'Gastos por Visita (R$)': ['220 - 249', '250 - 279', '280 - 309'],
+    'Frequência': [1, 2, 1]
+}
+
+# Criar o DataFrame
+df = pd.DataFrame(data)
+
+# Exibir a tabela
+print(df)
+
+# Criar gráfico de barras
+plt.figure(figsize=(8, 6))
+plt.bar(df['Gastos por Visita (R$)'], df['Frequência'], color='orange')
+
+# Adicionar título e rótulos aos eixos
+plt.title('Distribuição de Frequência - Gastos por Visita', fontsize=14)
+plt.xlabel('Gastos por Visita (R$)', fontsize=12)
+plt.ylabel('Frequência', fontsize=12)
+
+# Exibir gráfico
+plt.tight_layout()
+plt.show()
