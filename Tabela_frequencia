@@ -1,0 +1,10 @@
+# Definindo a tabela de frequência
+tabela_frequencia = [
+    {"gastos_por_visita": "220 - 249", "frequencia": 1},
+    {"gastos_por_visita": "250 - 279", "frequencia": 2},
+    {"gastos_por_visita": "280 - 309", "frequencia": 1}
+]
+
+# Exibindo os dados
+for linha in tabela_frequencia:
+    print(f"Gastos por Visita: {linha['gastos_por_visita']}, Frequência: {linha['frequencia
