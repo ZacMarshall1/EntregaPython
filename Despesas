@@ -1,0 +1,30 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Dados da tabela
+data = {
+    'Categoria': ['Moradia', 'Condomínio', 'Supermercado', 'Água', 'Luz', 'Gás', 
+                  'IPTU', 'Plano de Saúde', 'Seguro de Vida', 'Investimentos', 'Outras Despesas Essenciais'],
+    'Valor (R$)': [1620, 270, 1080, 162, 270, 108, 108, 540, 162, 540, 540],
+    'Porcentagem do Gasto Total (%)': [30, 5, 20, 3, 5, 2, 2, 10, 3, 10, 10]
+}
+
+# Criar o DataFrame
+df = pd.DataFrame(data)
+
+# Calcular o total e o valor médio
+total = df['Valor (R$)'].sum()
+valor_medio = df['Valor (R$)'].mean()
+
+# Adicionar total e valor médio ao DataFrame
+df.loc[len(df)] = ['Total', total, 100]
+df.loc[len(df)] = ['Valor Médio', valor_medio, '']
+
+# Exibir a tabela
+print(df)
+
+# Plotar gráfico de pizza para visualização
+plt.figure(figsize=(8, 8))
+plt.pie(df['Valor (R$)'][:-2], labels=df['Categoria'][:-2], autopct='%1.1f%%', startangle=140)
+plt.title('Distribuição das Despesas')
+plt.show()
